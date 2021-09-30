@@ -1,6 +1,9 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
+import { AnimesNewsProvider } from './contexts/animeNews';
 import { AnimesProvider } from './contexts/animes';
 import { AuthProvider } from './contexts/auth';
+
 import Donation from './pages/Donation';
 import Home from './pages/Home';
 import News from './pages/News';
@@ -13,16 +16,18 @@ export default function App() {
   return (
     <AuthProvider>
       <AnimesProvider>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/signIn" component={SignIn} />
-            <Route path="/signUp" component={SignUp} />
-            <Route path="/donation" component={Donation} />
-            <PrivateRoute path="/news" component={News} />
-          </Switch>
-        </BrowserRouter>
-        <GlobalStyle />
+        <AnimesNewsProvider>
+          <BrowserRouter>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/signIn" component={SignIn} />
+              <Route path="/signUp" component={SignUp} />
+              <Route path="/donation" component={Donation} />
+              <PrivateRoute path="/news" component={News} />
+            </Switch>
+          </BrowserRouter>
+          <GlobalStyle />
+        </AnimesNewsProvider>
       </AnimesProvider>
     </AuthProvider>
   );
