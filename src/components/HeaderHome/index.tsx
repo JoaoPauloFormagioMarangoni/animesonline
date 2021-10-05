@@ -3,7 +3,8 @@ import { AnimeList, Container } from "./styles";
 import LogoImg from '../../assets/logo.svg';
 import Avatar from '../../assets/avatar.png';
 
-import { BiSearchAlt } from 'react-icons/bi'
+import { BiSearchAlt } from 'react-icons/bi';
+import { RiMenuUnfoldFill, RiMenuFoldFill } from 'react-icons/ri';
 import { useAuth } from "../../contexts/auth";
 import { useEffect, useState } from "react";
 
@@ -24,6 +25,7 @@ export function HeaderHome() {
     const { signed, isSignOut, user } = useAuth();
     const [text, setText] = useState('');
     const [infoAnime, setInfoAnime] = useState<AnimeProps[]>([]);
+    const [isActiveMenu, setIsActiveMenu] = useState(false);
 
     useEffect(() => {
         if (text) {
@@ -44,10 +46,24 @@ export function HeaderHome() {
     return (
         <>
             <Container>
+                <button onClick={() => setIsActiveMenu(!isActiveMenu)}>
+                    {isActiveMenu ? (
+                        <RiMenuFoldFill className="menuOpen" />
+                    ) : (
+                        <RiMenuUnfoldFill className="menuOpen" />
+                    )}
+                </button>
+
+                {isActiveMenu && (
+                    <div>
+
+                    </div>
+                )}
+
                 <Link to="/">
-                    <img src={LogoImg} alt="Animes Online" />
+                    <img className="logoCenter" src={LogoImg} alt="Animes Online" />
                 </Link>
-                <div>
+                <div className={isActiveMenu ? "menuIsOpen" : ""}>
                     <nav>
                         <Link
                             to="/"
@@ -85,19 +101,19 @@ export function HeaderHome() {
                     </div>
 
                     {signed ? (
-                        <>
+                        <div className="logoutButton">
                             <button type="button" onClick={handleSignOut} className="firstButton">Sign out</button>
                             <img className="avatar" src={Avatar} alt="Avatar" title={user?.name} />
-                        </>
+                        </div>
                     ) : (
-                        <>
+                        <div className="logoutButton">
                             <Link to="/signUp">
                                 <button type="button" className="firstButton">Sign up</button>
                             </Link>
                             <Link to="/signIn">
                                 <button type="button">Sign in</button>
                             </Link>
-                        </>
+                        </div>
                     )}
                 </div>
             </Container>

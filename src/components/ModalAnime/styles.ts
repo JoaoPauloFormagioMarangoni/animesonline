@@ -190,4 +190,60 @@ export const Container = styled.div`
             transform: translateY(-45%);
         }
     }
+
+    @media (max-width: 1480px) {
+        > button {
+            width: 70px;
+            height: 55px;
+
+            &.previous {
+                top: 103%;
+                left: 0;
+                transform: translateY(0);
+            }
+
+            &.next {
+                top: 103%;
+                transform: translateY(0);
+                right: 0;
+            }
+        }
+    }
+
+    @media (max-width: 900px) {
+        overflow: auto;
+        height: 80vh;
+        grid-template-columns: 1fr;
+
+        > div {
+            > div {
+                > div button {
+                    width: 100%;
+                }
+            }
+        }
+
+        > button {
+            &.previous {
+                top: 0;
+                left: 0;
+            }
+
+            &.next {
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+
+    @media (max-width: 550px) {
+        > div > div {
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                margin-bottom: 10px;
+            }
+        }
+    }
 `;

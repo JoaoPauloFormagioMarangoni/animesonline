@@ -16,7 +16,7 @@ export const ContainerDonation = styled.div`
     align-items: center;
     justify-content: center;
 
-    background: url(${banner}) no-repeat fixed top left;
+    background: url(${banner}) no-repeat fixed top;
     background-size: cover;
     width: 100%;
     height: 100vh;
@@ -62,6 +62,16 @@ export const ContainerDonation = styled.div`
                     border-radius: 5px;
                     padding: 10px;
                 }
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        > div {
+            width: 100%;
+            
+            > div {
+                grid-template-columns: repeat(1, 1fr);
             }
         }
     }

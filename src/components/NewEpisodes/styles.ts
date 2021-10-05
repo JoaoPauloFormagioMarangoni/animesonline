@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.article`
-    width: 1000px;
+    max-width: 1000px;
     margin: auto;
     padding: 15px 0;
     color: var(--white);
@@ -47,6 +47,16 @@ export const Container = styled.article`
 
         &:hover {
             background: var(--purple);
+        }
+    }
+
+    @media (max-width: 1030px) {
+        width: 100%;
+        padding: 10px;
+        
+        > div {
+            justify-content: center;
+            align-items: center;
         }
     }
 `;

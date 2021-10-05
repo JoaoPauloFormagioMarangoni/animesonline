@@ -75,6 +75,8 @@ export const Container = styled.div`
     }
 
     @media (max-width: 1190px) {
+        height: 100vh;
+        
         form {
             input {
                 border: #BD00FF solid 1px;

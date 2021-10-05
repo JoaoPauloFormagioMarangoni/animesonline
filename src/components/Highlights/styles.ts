@@ -53,4 +53,16 @@ export const Container = styled.div`
             }
         }
     }
+
+    @media (max-width: 750px) {
+        .gridAnimes {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 550px) {
+        .gridAnimes {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
 `;
