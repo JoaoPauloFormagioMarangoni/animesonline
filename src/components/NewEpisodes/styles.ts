@@ -126,4 +126,10 @@ export const SubtitleImg = styled.div`
     &:hover div:last-child {
         visibility: visible;
     }
+
+    @media (max-width: 1050px) {
+        & div:last-child {
+            visibility: visible;
+        }
+    }
 `;
