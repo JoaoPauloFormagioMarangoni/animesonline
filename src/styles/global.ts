@@ -46,9 +46,11 @@ export const GlobalStyle = createGlobalStyle`
 
       position: fixed;
       top: 0;
-      bottom: 0;
-      right: 0;
       left: 0;
+      height: 100%;
+      width: 100%;
+
+      overflow-x: auto;
 
       display: flex;
       align-items: center;
@@ -57,12 +59,20 @@ export const GlobalStyle = createGlobalStyle`
   }
 
     .react-modal-content {
+        height: 100%;
         width: 100%;
         max-width: 1250px;
+        max-height: 706px;
         background: var(--background);
         padding: 3rem;
         position: relative;
         border-radius: 0.24rem;
+    }
+
+    @media (max-width: 990px) {
+        &.react-modal-content {
+            max-height: 100%;
+        }
     }
 
     .react-modal-close {

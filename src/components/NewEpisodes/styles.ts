@@ -13,6 +13,7 @@ export const Container = styled.article`
 
     & > div {
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
 
         & > a {
@@ -47,16 +48,6 @@ export const Container = styled.article`
 
         &:hover {
             background: var(--purple);
-        }
-    }
-
-    @media (max-width: 1030px) {
-        width: 100%;
-        padding: 10px;
-        
-        > div {
-            justify-content: center;
-            align-items: center;
         }
     }
 `;
@@ -125,11 +116,5 @@ export const SubtitleImg = styled.div`
 
     &:hover div:last-child {
         visibility: visible;
-    }
-
-    @media (max-width: 1050px) {
-        & div:last-child {
-            visibility: visible;
-        }
     }
 `;
